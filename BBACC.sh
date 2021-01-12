@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-
-
-
 check_sys(){
 	if [[ -f /etc/redhat-release ]]; then
 		release="centos"
@@ -19,27 +16,25 @@ check_sys(){
 		release="ubuntu"
 	elif cat /proc/version | grep -q -E -i "centos|red hat|redhat"; then
 		release="centos"
-    fi
+	fi
 	bit=`uname -m`
 }
-
-# ∞≤◊∞ “¿¿µ
+# ÂÆâË£Ö ‰æùËµñ
 Installation_dependency(){
 	if [[ ${release} == "centos" ]]; then
 		Centos_yum
 	else
 		Debian_apt
 	fi
-	[[ ! -e "/usr/bin/unzip" ]] && echo -e "${Error} “¿¿µ unzip(Ω‚—π—πÀı∞¸) ∞≤◊∞ ß∞‹£¨∂‡∞Î «»Ìº˛∞¸‘¥µƒŒ Ã‚£¨«ÎºÏ≤È !" && exit 1
+	[[ ! -e "/usr/bin/unzip" ]] && echo -e "${Error} ‰æùËµñ unzip(Ëß£ÂéãÂéãÁº©ÂåÖ) ÂÆâË£ÖÂ§±Ë¥•ÔºåÂ§öÂçäÊòØËΩØ‰ª∂ÂåÖÊ∫êÁöÑÈóÆÈ¢òÔºåËØ∑Ê£ÄÊü• !" && exit 1
 	Check_python
 	#echo "nameserver 8.8.8.8" > /etc/resolv.conf
 	#echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 	\cp -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 }
-
 check_sys
 Installation_dependency 
 if ! wget --no-check-certificate https://raw.githubusercontent.com/nindrin/Test/main/BBACC.zip; then
-			echo -e "BBACC.zip œ¬‘ÿ ß∞‹ !" && exit 1
+			echo -e "BBACC.zip ‰∏ãËΩΩÂ§±Ë¥• !" && exit 1
 fi 
 unzip "BBACC.zip" && [[ -e "BBACC" ]] && cd BBACC && && chmod +x ssr.sh && bash ssr.sh
