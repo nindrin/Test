@@ -35,7 +35,7 @@ check_running(){
 do_start(){
 	check_running
 	if [[ $? -eq 0 ]]; then
-		echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME (PID ${PID}) ÕıÔÚÔËĞĞ..." && exit 0
+		echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME (PID ${PID}) æ­£åœ¨è¿è¡Œ..." && exit 0
 	else
 		cd ${FOLDER}
 		#python_ver=$(ls /usr/bin|grep -e "^python[23]\.[1-9]\+$"|tail -1)
@@ -45,9 +45,9 @@ do_start(){
 		sleep 2s
 		check_running
 		if [[ $? -eq 0 ]]; then
-			echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME Æô¶¯³É¹¦ !"
+			echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME å¯åŠ¨æˆåŠŸ !"
 		else
-			echo -e "${Error_font_prefix}[´íÎó]${Font_suffix} $NAME Æô¶¯Ê§°Ü !"
+			echo -e "${Error_font_prefix}[é”™è¯¯]${Font_suffix} $NAME å¯åŠ¨å¤±è´¥ !"
 		fi
 	fi
 }
@@ -57,21 +57,21 @@ do_stop(){
 		kill -9 ${PID}
 		RETVAL=$?
 		if [[ $RETVAL -eq 0 ]]; then
-			echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME Í£Ö¹³É¹¦ !"
+			echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME åœæ­¢æˆåŠŸ !"
 		else
-			echo -e "${Error_font_prefix}[´íÎó]${Font_suffix} $NAME Í£Ö¹Ê§°Ü !"
+			echo -e "${Error_font_prefix}[é”™è¯¯]${Font_suffix} $NAME åœæ­¢å¤±è´¥ !"
 		fi
 	else
-		echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME Î´ÔËĞĞ"
+		echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME æœªè¿è¡Œ"
 		RETVAL=1
 	fi
 }
 do_status(){
 	check_running
 	if [[ $? -eq 0 ]]; then
-		echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME (PID ${PID}) ÕıÔÚÔËĞĞ..."
+		echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME (PID ${PID}) æ­£åœ¨è¿è¡Œ..."
 	else
-		echo -e "${Info_font_prefix}[ĞÅÏ¢]${Font_suffix} $NAME Î´ÔËĞĞ !"
+		echo -e "${Info_font_prefix}[ä¿¡æ¯]${Font_suffix} $NAME æœªè¿è¡Œ !"
 		RETVAL=1
 	fi
 }
@@ -84,7 +84,7 @@ case "$1" in
 	do_$1
 	;;
 	*)
-	echo -e "Ê¹ÓÃ·½·¨: $0 { start | stop | restart | status }"
+	echo -e "ä½¿ç”¨æ–¹æ³•: $0 { start | stop | restart | status }"
 	RETVAL=1
 	;;
 esac
