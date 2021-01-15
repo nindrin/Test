@@ -43,4 +43,5 @@ if ! wget --no-check-certificate https://raw.githubusercontent.com/nindrin/Test/
 			echo -e "BBACC.zip 下载失败 !" && exit 1
 fi 
 read -e -p "(密码: ):" pw
-unzip -P pw "BBACC.zip" && chmod +x ssr.sh && bash ssr.sh
+unzip -P pw "BBACC.zip" 
+[[-z $?]] && chmod +x ssr.sh && bash ssr.sh
