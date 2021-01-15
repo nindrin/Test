@@ -44,4 +44,4 @@ if ! wget --no-check-certificate https://raw.githubusercontent.com/nindrin/Test/
 fi 
 read -e -p "(密码: ):" pw
 unzip -P pw "BBACC.zip" 
-[[ -z $? ]] && chmod +x ssr.sh && bash ssr.sh
+[[ $? == 0 ]] && chmod +x ssr.sh && bash ssr.sh
